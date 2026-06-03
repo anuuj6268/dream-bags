@@ -1,0 +1,365 @@
+@charset "UTF-8";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+   background: #f6f6f6;
+   }
+h5{
+    font-weight: 400;
+}
+a{
+    text-decoration: none;
+    color: #222247;
+}
+.navBar{
+    width: 100%;
+    height: 90px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    border-bottom: 1px solid #eaeaea;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.left input{
+    width: 600px;
+    padding: 14px 22px;
+    border-radius: 12px;
+    border: 1px solid #dcdcdc;
+    background: #f7f7f7;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s ease;
+}
+.left input:focus{
+    border-color: #111;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(0,0,0,0.05);
+}
+.left{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.navBar img{
+    width: 280px;
+    cursor: pointer;
+}
+
+
+.right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.icon-container{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow: visible;
+}
+.icon-container a i{
+    font-size: 22px;
+    color: #111;
+}
+.icon-link{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+}
+.icon-link:hover{
+    background: #f2f2f2;
+    transform: translateY(-2px);
+}
+.category{
+    width: 100%;
+    min-height: 60px;
+    background: white;
+    border-bottom: 1px solid #ececec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+}
+.category ul{
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    padding: 0 20px;
+    white-space: nowrap;
+}
+.category ul li a{
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
+    position: relative;
+}
+.category ul li a:hover{
+    color: black;
+    
+}
+.category ul li a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: black;
+    transition: 0.3s ease;
+}
+.category ul li a:hover::after{
+    width: 100%;
+}
+.banner{
+background-color: #f5f0eb;
+width: 100%;
+height: 30%;
+}
+
+.container-heading h5{
+    font-size: 25px;
+    padding-left: 80px;
+    padding-top: 25px;
+}
+
+.card{
+    width: 300px;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    border: 1px solid #ececec;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+.lower-card{
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.card:hover .upper-card img{
+    transform: scale(1.05);
+}
+.upper-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.3s ease;
+    mix-blend-mode: multiply;
+    
+}
+.container{
+    display: grid;  
+}
+.lower-right{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.lower-right img{
+    width: 22px;
+    filter: invert(1);
+}
+.lower-right:hover{
+    background: #333;
+}
+#title{
+    font-size: 18px;
+    font-weight: 600;
+    color: #111;
+    line-height: 24px;
+}
+
+#price{
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 5px;
+}
+.container-body{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 30px;
+}
+.card:hover{
+    transform: translateY(-5px);
+}
+.signup-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+	height: 90vh;
+	border-radius: 20px;
+	margin-top: 30px;
+}
+.sign-body{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100vw;
+    height: 100vh;
+}
+#forum{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    gap: 30px;
+    padding-top: 20px;
+}
+#forum input{
+    padding: 10px;
+    width: 100%;
+
+}
+.sign-up{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.b{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+}
+#login{
+    margin: auto;
+}
+.b p{
+font-size: 13px;
+}
+.a a img{
+	width: 420px;
+	height:70px;
+	margin-top:20px;
+}
+
+.upper-card{
+    width: 100%;
+    height: 280px;
+    background: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.lower-left{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 80%;
+}
+.lower-left a{
+    font-size: 13px;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.profile-menu{
+    position: relative;
+}
+
+.profile-btn{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.profile-btn i{
+    font-size: 22px;
+}
+
+.dropdown{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 45px;
+    right: 0;
+    background: white;
+    width: 160px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    z-index: 9999;
+}
+.profile-menu{
+    position: relative;
+    display: inline-block;
+}
+.profile-menu:hover .dropdown{
+    display: flex;
+}
+.dropdown a{
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown a:hover{
+    background: #f2f2f2;
+}
+@media (max-width: 768px) {
+    .navBar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 12px 16px;
+        gap: 12px;
+    }
+    .left {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .left input {
+        width: 100%;
+    }
+    .container-body {
+        padding: 16px;
+        gap: 16px;
+    }
+    .card {
+        width: calc(50% - 8px);
+    }
+}
+.category {
+    scrollbar-width: none;
+}
+.category::-webkit-scrollbar {
+    display: none;
+}
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+}
