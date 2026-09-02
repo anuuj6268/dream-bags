@@ -20,7 +20,8 @@ public Connection getConnection() throws ClassNotFoundException, SQLException {
     String railwayUrl = System.getenv("MYSQL_URL");
 
     if (railwayUrl != null && !railwayUrl.isEmpty()) {
-    	railwayUrl = railwayUrl.replace("mysql://", "jdbc:mysql://") + "/bag_store";
+    	railwayUrl = railwayUrl.replace("mysql://", "jdbc:mysql://");
+    	railwayUrl = railwayUrl.replace("/railway/bag_store", "/railway");
 
         return DriverManager.getConnection(railwayUrl);
     }
