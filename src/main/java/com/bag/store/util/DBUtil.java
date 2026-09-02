@@ -14,9 +14,18 @@ public final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
 
 public Connection getConnection() throws ClassNotFoundException, SQLException {
-	Class.forName(DRIVER);
-	Connection connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-	return connection;
+
+    Class.forName(DRIVER);
+
+    String railwayUrl = System.getenv("MYSQL_URL");
+
+    if (railwayUrl != null && !railwayUrl.isEmpty()) {
+        railwayUrl = railwayUrl.replace("mysql://", "jdbc:mysql://");
+
+        return DriverManager.getConnection(railwayUrl);
+    }
+
+    return DriverManager.getConnection(URL, USERNAME, PASSWORD);
 }
 
 public void close(Connection conn,PreparedStatement pstmt,ResultSet rs) throws SQLException {
