@@ -13,7 +13,7 @@ public class CartDAO {
 	private final String Q_INSERT = "insert into cart (user_id) values(?)";
 	private final String Q_UPDATE = "update cart set user_id = ? where id = ?";
 	private final String Q_DELETE = "delete from cart where id = ?";
-	private final String Q_FIND_BY_ID = "select * from cart where id = ?";
+	private final String Q_FIND_BY_USER_ID = "select * from cart where user_id = ?";
 	private final String Q_FINDALL = "select * from cart";
 	private DBUtil dbUtil;
 
@@ -70,13 +70,13 @@ public class CartDAO {
 		 }
 	}
 
-	public CartDTO findById(int id) throws Exception {
+	public CartDTO findByUserId(int id) throws Exception {
 		 Connection connection = null;
 		 PreparedStatement pstmt = null;
 		 ResultSet rs = null;
 		 try {
 			 connection = dbUtil.getConnection();
-			 pstmt = connection.prepareStatement(Q_FIND_BY_ID);
+			 pstmt = connection.prepareStatement(Q_FIND_BY_USER_ID);
 			 pstmt.setInt(1,id);
 			 rs = pstmt.executeQuery();
 			 CartDTO cartDTO = null;

@@ -3,6 +3,7 @@ package com.bag.store.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,14 +30,22 @@ public int insert(UserDTO userDTO) throws Exception {
 try {
 	 connection = dbUtil.getConnection();
 
-	pstmt = connection.prepareStatement(Q_INSERT);
+	pstmt = connection.prepareStatement(Q_INSERT,Statement.RETURN_GENERATED_KEYS);
 	pstmt.setString(1, userDTO.getName());
 	pstmt.setString(2, userDTO.getMobile_number());
 	pstmt.setString(3, userDTO.getEmail());
 	pstmt.setString(4, userDTO.getPassword());
 
-
-	return pstmt.executeUpdate();
+	int a = pstmt.executeUpdate();
+	if(a>0) {
+	ResultSet rs = pstmt.getGeneratedKeys();
+	if (rs.next()) {
+	    int userId = rs.getInt(1);
+	    dbUtil.close(rs);
+	    return userId;
+	}
+	}
+return 0;
 }
 catch(Exception e) {
 	e.printStackTrace();

@@ -10,10 +10,11 @@ import com.bag.store.dto.PincodeDTO;
 import com.bag.store.util.DBUtil;
 
 public class PincodeDAO {
-private final String Q_INSERT = "insert into pincode (city,state) values (?,?)";
-private final String Q_UPDATE = "update pincode set city = ? ,state = ? where id = ?";
+private final String Q_INSERT = "insert into pincode (city,state,pincode) values (?,?,?)";
+private final String Q_UPDATE = "update pincode set city = ? ,state = ?,pincode = ? where id = ?";
 private final String Q_DELETE_BY_ID = "delete from pincode where id = ?";
 private final String Q_FIND_BY_ID = "select * from pincode where id = ?";
+private final String Q_FIND_BY_PINCODE = "select * from pincode where pincode = ?";
 private final String Q_FINDALL = "select * from pincode";
 private DBUtil dbUtil = null;
 
@@ -28,7 +29,7 @@ public int insert(PincodeDTO pincodeDTO) throws Exception {
 		pstmt = connection.prepareStatement(Q_INSERT);
 		pstmt.setString(1,pincodeDTO.getCity());
 		pstmt.setString(2, pincodeDTO.getState());
-
+		pstmt.setInt(3,pincodeDTO.getPincode());
 		 return pstmt.executeUpdate();
 
 	 }catch(Exception e) {
@@ -48,6 +49,7 @@ public int update(PincodeDTO pincodeDTO) throws Exception {
 		pstmt.setString(1,pincodeDTO.getCity());
 		pstmt.setString(2, pincodeDTO.getState());
 		pstmt.setInt(3, pincodeDTO.getPincode_id());
+		pstmt.setInt(4,pincodeDTO.getPincode());
 		 return pstmt.executeUpdate();
 
 	 }catch(Exception e) {
@@ -87,6 +89,33 @@ public PincodeDTO findById(int id) throws Exception {
 			 pincodeDTO = new PincodeDTO();
 			 pincodeDTO.setCity(rs.getString("city"));
 			 pincodeDTO.setState(rs.getString("state"));
+			 pincodeDTO.setPincode(rs.getInt("pincode"));
+			}
+		 return pincodeDTO;
+	 }catch(Exception e) {
+		 e.printStackTrace();
+		 throw e;
+	 }finally {
+		 dbUtil.close(connection,pstmt,rs);
+	 }
+}
+
+public PincodeDTO findByPincode(int pincode) throws Exception {
+	Connection connection = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	 try {
+		 connection = dbUtil.getConnection();
+		 pstmt = connection.prepareStatement(Q_FIND_BY_PINCODE);
+		 pstmt.setInt(1,pincode);
+		 rs = pstmt.executeQuery();
+		 PincodeDTO pincodeDTO = null;
+		 while(rs.next()) {
+			 pincodeDTO = new PincodeDTO();
+			 pincodeDTO.setPincode_id(rs.getInt("id"));
+			 pincodeDTO.setCity(rs.getString("city"));
+			 pincodeDTO.setState(rs.getString("state"));
+			 pincodeDTO.setPincode(rs.getInt("pincode"));
 			}
 		 return pincodeDTO;
 	 }catch(Exception e) {
@@ -111,6 +140,7 @@ public List<PincodeDTO> findAll() throws Exception{
 		 pincodeDTO = new PincodeDTO();
 		 pincodeDTO.setCity(rs.getString("city"));
 		 pincodeDTO.setState(rs.getString("state"));
+		 pincodeDTO.setPincode(rs.getInt("pincode"));
 		 pincodeDTOList.add(pincodeDTO);
 		 }
 		 return pincodeDTOList;

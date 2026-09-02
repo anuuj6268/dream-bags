@@ -20,6 +20,10 @@ public List<BagDTO> findByBagTypeID(int BagTypeId) throws Exception{
 	return bagDAO.findByBagTypeId(BagTypeId);
 }
 
+public List<BagDTO> search(String keyword) throws Exception{
+	return bagDAO.search(keyword);
+}
+
 public List<BagDTO> findAll() throws Exception{
 	return bagDAO.findAll();
 }

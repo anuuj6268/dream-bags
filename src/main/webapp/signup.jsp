@@ -7,16 +7,16 @@
     <title>signup</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="sign-body">
     <div class="signup-container">
     <div class="sign-up">
-    <div class="a"><a href="home.jsp"><img src="dream.png" alt="" id="logo"></a></div>
+    <div class="a"><a href="BagServlet"><img src="dream.png" alt="" id="logo"></a></div>
     <div class="b"><h1>Sign up</h1>
-    <h5>Create an account</h5></div></div>
+    <h5>Create an account</h5></div>
     <div class="sing-down">
     <form action="UserServlet" id="forum" method="post">
     <input type = "hidden" name="task" value="signup">
@@ -27,11 +27,8 @@
     <input type="submit" value="submit">
     <p>Already have an account?  <a href="login.jsp">Log-in</a></p>
     </form>
-</div>
-
-</div>
-
-
-
+    </div>
+    </div>
+    </div>
 </body>
 </html>

@@ -1,11 +1,10 @@
 package com.bag.store.dto;
 
-import java.time.LocalDateTime;
-
+import java.sql.Timestamp;
 public class PaymentDTO {
 private int id;
 private int paymentTypeId;
-private LocalDateTime dateAndTime;
+private Timestamp dateAndTime; 
 private double amount;
 public int getId() {
 	return id;
@@ -19,10 +18,10 @@ public int getPaymentTypeId() {
 public void setPaymentTypeId(int paymentTypeId) {
 	this.paymentTypeId = paymentTypeId;
 }
-public LocalDateTime getDateAndTime() {
+public Timestamp getDateAndTime() {
 	return dateAndTime;
 }
-public void setDateAndTime(LocalDateTime dateAndTime) {
+public void setDateAndTime(Timestamp dateAndTime) {
 	this.dateAndTime = dateAndTime;
 }
 public double getAmount() {

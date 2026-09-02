@@ -34,6 +34,14 @@ public class BagServlet extends HttpServlet {
 	if(task == null) {
 		findAll(request,response);
 	}
+	else if(task.equalsIgnoreCase("search")) {
+		try {
+			search(request,response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	else {
 		int bagTypeId = Integer.parseInt(task);
 		if(bagTypeId>0) {
@@ -42,6 +50,13 @@ public class BagServlet extends HttpServlet {
 	}
 	}
 
+
+	private void search(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String keyword = request.getParameter("keyword");
+		List<BagDTO> searchList = bagService.search(keyword);
+		request.setAttribute("bagDTOList",searchList);
+		request.getRequestDispatcher("home.jsp").forward(request, response);
+	}
 
 	private void findAll(HttpServletRequest request, HttpServletResponse response) {
 try {

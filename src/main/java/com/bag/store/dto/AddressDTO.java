@@ -3,8 +3,17 @@ package com.bag.store.dto;
 public class AddressDTO {
 private int id;
 private int userId;
+private String mobile;
 private String houseNumber;
 private String landmark;
+
+public String getMobile() {
+	return mobile;
+}
+public void setMobile(String mobile) {
+	this.mobile = mobile;
+}
+
 private int pincodeId;
 public int getId() {
 	return id;

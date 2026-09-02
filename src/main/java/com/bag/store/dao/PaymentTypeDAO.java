@@ -9,8 +9,8 @@ import com.bag.store.dto.PaymentTypeDTO;
 import com.bag.store.util.DBUtil;
 
 public class PaymentTypeDAO {
-		private final String Q_INSERT = "insert into payment_type (name) values (?)";
-		private final String Q_UPDATE = "update payment_type set name = ? where id = ?";
+		private final String Q_INSERT = "insert into payment_type (payment_type_name) values (?)";
+		private final String Q_UPDATE = "update payment_type set payment_type_name = ? where id = ?";
 		private final String Q_DELETE_BY_ID = "delete from payment_type where id = ?";
 		private final String Q_FIND_BY_ID = "select * from payment_type where id = ?";
 		private final String Q_FINDALL = "select * from payment_type";
@@ -84,7 +84,7 @@ public class PaymentTypeDAO {
 				 while(rs.next()) {
 					 paymentTypeDTO = new PaymentTypeDTO();
 					 paymentTypeDTO.setId(rs.getInt("id"));
-					 paymentTypeDTO.setName(rs.getString("name"));
+					 paymentTypeDTO.setName(rs.getString("payment_type_name"));
 					}
 				 return paymentTypeDTO;
 			 }catch(Exception e) {
@@ -108,7 +108,7 @@ public class PaymentTypeDAO {
 				 while(rs.next()) {
 				 paymentTypeDTO = new PaymentTypeDTO();
 				 paymentTypeDTO.setId(rs.getInt("id"));
-				 paymentTypeDTO.setName(rs.getString("Name"));
+				 paymentTypeDTO.setName(rs.getString("payment_type_name"));
 				 paymentTypeDTOList.add(paymentTypeDTO);
 				 }
 				 return paymentTypeDTOList;

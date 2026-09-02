@@ -4,7 +4,7 @@
 <%@page import="com.bag.store.dto.UserDTO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,58 +18,7 @@
 </head>
 
 <body>
-    <div class="navBar">
-        <div class="left">
-        <a href="BagServlet" value = "TaskAll"><img src="dream.png" alt="" id="logo"></a>
-        <input type="search" placeholder="Search for BAGS"> 
-</div>
-<div class="right">
-<div class="icon-container">
-<%
-
-UserDTO userDTO = (UserDTO)session.getAttribute("activeUserDTO");
-if(userDTO == null){
-%>
-        <a href="login.jsp" class="icon-link" aria-label="Profile">
-            <i class="fa-regular fa-user"></i>
-        </a>
-<%     
-}
-        		else{ %>
-
-<div class="profile-menu">
-
-<a class="icon-link">
-    <i class="fa-regular fa-user"></i>
-</a>
-
-<div class="dropdown">
-    <a href="UserServlet?task=editProfile">Edit Profile</a>
-    <a href="LogoutServlet">Logout</a>
-</div>
-
-</div>
-<%
-}
-%>
-
-        <a href="wishlist.jsp" class="icon-link" aria-label="Wishlist">
-            <i class="fa-regular fa-heart"></i>
-        </a>
-
-        <a href="cart.jsp" class="icon-link" aria-label="Shopping Cart">
-            <i class="fa-solid fa-cart-shopping"></i>
-        </a>
-    </div>
-</div>
-
-    </div>
-<!-- <div class="banner">
-    <h5>NEW COLLECTION 2026</h5>
-    <h5>Carry What Matters</h5>
-    <h5>Premium bags for every journey</h5>
-</div> -->
-
+<%@ include file = "NavBar.jsp" %>
     <div class="category">
     <ul>
         <li><a href="BagServlet?type=1">BACKPACK BAG</a></li>
@@ -108,17 +57,19 @@ for(BagDTO bagDTO : bagDTOList){
     <img src="<%=bagDTO.getUrl()%>">
     </div>
     <div class="lower-card">
-    <div class="lower-left"><a href="">Backpack Bags</a>
+  <div class="lower-left">
+    <a href="">Backpack Bags</a>
     <h5 id="title"><%=bagDTO.getName()%></h5>
-    <h5 id="price">₹<%=bagDTO.getPrice()%></h5></div>
-    <div class="lower-right">
-    <form action="CartServlet" method ="post">
-    <input type="hidden" name = "task" value ="addToCart">
-    <input type="hidden" name = "bagId" value="<%=bagDTO.getId()%>">
-    <input type="submit" value="Add To Cart">
+  </div>
+  <div class="lower-right">
+    <h5 id="price">₹<%=bagDTO.getPrice()%></h5>
+    <form action="CartServlet" method="post">
+      <input type="hidden" name="task" value="addToCart">
+      <input type="hidden" name="bagId" value="<%=bagDTO.getId()%>">
+      <input type="submit" value="Add To Cart">
     </form>
-    </div>
-    </div>
+  </div>
+</div>
 </div>
 <%
 }

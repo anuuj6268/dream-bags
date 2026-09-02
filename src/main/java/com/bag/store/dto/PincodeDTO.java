@@ -4,6 +4,13 @@ public class PincodeDTO {
 private int pincode_id;
 private String city;
 private String state;
+private int pincode;
+public int getPincode() {
+	return pincode;
+}
+public void setPincode(int pincode) {
+	this.pincode = pincode;
+}
 public int getPincode_id() {
 	return pincode_id;
 }
