@@ -11,6 +11,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css"></head>
 <body class="sign-body">
+<%
+String error = (String) request.getAttribute("error");
+
+if (error != null) {
+%>
+
+<script>
+    alert("<%= error %>");
+</script>
+
+<%
+}
+%>
     <div class="signup-container">
     <div class="sign-up">
     <div class="a"><a href="home.jsp"><img src="dream.png" alt="" id="logo"></a></div>

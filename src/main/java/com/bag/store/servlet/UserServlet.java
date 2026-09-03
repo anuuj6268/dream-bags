@@ -93,22 +93,14 @@ public class UserServlet extends HttpServlet {
 
 			}
 			else {
-				System.out.println("Failed to save");
-				RequestDispatcher requestDispatcher = request.getRequestDispatcher("message.jsp");
-				request.setAttribute("status", "Failed");
-				request.setAttribute("message", "Unable to create User account.");
-				request.setAttribute("redirectUrl", "signup.jsp");
-				requestDispatcher.forward(request, response);					}
+				request.setAttribute("error", "unable to Create account");
+				request.getRequestDispatcher("signup.jsp").forward(request, response);
+			}
 		}catch(Exception e) {
 		System.out.println("Failed to save due to : " + e.getMessage());
 		e.printStackTrace();
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("message.jsp");
-		request.setAttribute("status", "Failed");
-		request.setAttribute("message", "Unable to create User account due to: " + e.getMessage());
-		request.setAttribute("redirectUrl", "signup.jsp");
-		requestDispatcher.forward(request, response);
-
-
+		request.setAttribute("error", "unable to Create account");
+		request.getRequestDispatcher("signup.jsp").forward(request, response);
 		}
 
 		}
@@ -119,14 +111,19 @@ public class UserServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		try {
 			UserDTO userDTO = userService.login(email, password);
+			
 			if(userDTO!=null) {
 				request.getSession().setAttribute("activeUserDTO", userDTO);
 				response.sendRedirect("BagServlet");
 			}
+			else {
+				request.setAttribute("error", "Wrong username or password");
+				request.getRequestDispatcher("login.jsp").forward(request, response);
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
-			request.getRequestDispatcher("login.jsp");
-			request.setAttribute("message", "unable to login user account due to "+e.getMessage());
+			request.setAttribute("error", "Wrong username or password");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 	}
 

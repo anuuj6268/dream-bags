@@ -102,5 +102,17 @@ for(ViewCartDTO viewCartDTO : cartList){
         </form>
     </div>
 </div>
+<script>
+    const track = document.querySelector('.carousel-track');
+    const arrows = document.querySelectorAll('.carousel-arrow');
+
+    arrows[0].onclick = function () {
+        track.scrollLeft -= 250;
+    };
+
+    arrows[1].onclick = function () {
+        track.scrollLeft += 250;
+    };
+</script>
 </body>
 </html>

@@ -12,6 +12,19 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="sign-body">
+<%
+String error = (String) request.getAttribute("error");
+
+if (error != null) {
+%>
+
+<script>
+    alert("<%= error %>");
+</script>
+
+<%
+}
+%>
     <div class="signup-container">
     <div class="sign-up">
     <div class="a"><a href="BagServlet"><img src="dream.png" alt="" id="logo"></a></div>

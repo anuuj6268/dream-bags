@@ -1,6 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.bag.store.dto.BagDTO"%>
 <%@page import="com.bag.store.dto.BagTypeDTO"%>
+<%@page import="com.bag.store.service.BagService" %>
 <%@page import="com.bag.store.dto.UserDTO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -48,7 +49,7 @@
 <%
 if(request.getAttribute("bagDTOList")!=null){
 List<BagDTO> bagDTOList = (List)request.getAttribute("bagDTOList");
-
+BagService bagType = new BagService(null);
 for(BagDTO bagDTO : bagDTOList){
 %>
 
@@ -58,7 +59,7 @@ for(BagDTO bagDTO : bagDTOList){
     </div>
     <div class="lower-card">
   <div class="lower-left">
-    <a href="">Backpack Bags</a>
+    <a href="BagServlet?type=<%=bagDTO.getBagType()%>"><%=bagType.findByName(bagDTO.getBagType())%></a>
     <h5 id="title"><%=bagDTO.getName()%></h5>
   </div>
   <div class="lower-right">

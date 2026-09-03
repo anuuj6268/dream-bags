@@ -15,6 +15,7 @@ public class BagTypeDAO {
 	private final String Q_DELETE = "delete from address where id = ?";
 	private final String Q_FIND_BY_ID = "select * from bag_type where id = ?";
 	private final String Q_FIND_ALL = "select * from bag_type";
+	private final String Q_FIND_NAME = "select name from bag_type where id= ?";
 	private DBUtil dbutil;
 	public BagTypeDAO(DBUtil dbutil) {
 		this.dbutil = dbutil;
@@ -124,7 +125,34 @@ public class BagTypeDAO {
 	 }
 
 
+public String findNameById(int id) throws Exception {
 
+    Connection connection = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    try {
+        connection = dbutil.getConnection();
+
+        pstmt = connection.prepareStatement(Q_FIND_NAME);
+        pstmt.setInt(1, id);
+
+        rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            return rs.getString("name");
+        }
+
+        return null;
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        throw e;
+
+    } finally {
+        dbutil.close(connection, pstmt, rs);
+    }
+}
     }
 
 
