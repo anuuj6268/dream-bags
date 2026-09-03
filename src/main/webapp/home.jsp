@@ -31,7 +31,7 @@
         <li><a href="BagServlet?type=7">SATCHEL BAG</a></li>
         <li><a href="BagServlet?type=8">KNAPSACK BAG</a></li>
         <li><a href="BagServlet?type=9">HANDBAG</a></li>
-        <li><a href="BagServlet?type=10">CROSSBODY BAG</a></li>
+        <li><a href="BagServlet?type=10">SLING BAG</a></li>
         <li><a href="BagServlet?type=11">FUNCTIONAL BAG</a></li>
         <li><a href="BagServlet?type=12">TRUNKS</a></li>
     </ul>
