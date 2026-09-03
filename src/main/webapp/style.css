@@ -1485,6 +1485,7 @@ button, input[type="submit"] {
     background: var(--accent-hover);
 }
 
+
 @media (max-width: 600px) {
     .admin-page {
         margin: 20px 16px;
