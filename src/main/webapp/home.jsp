@@ -79,5 +79,47 @@ for(BagDTO bagDTO : bagDTOList){
     </div>
 
 </div>
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-brand">
+            <h2>Dream Bags</h2>
+            <p>Carry what matters. Premium bags for every journey.</p>
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-col">
+                <h5>Shop</h5>
+                <a href="BagServlet?type=1">Backpacks</a>
+                <a href="BagServlet?type=9">Handbags</a>
+                <a href="BagServlet?type=10">Crossbody Bags</a>
+                <a href="BagServlet?type=12">Trunks</a>
+            </div>
+
+            <div class="footer-col">
+                <h5>Account</h5>
+                <a href="CartServlet?task=getCartItems">Cart</a>
+                <a href="UserServlet?task=editProfile">Edit Profile</a>
+                <a href="LogoutServlet">Logout</a>
+            </div>
+
+            <div class="footer-col">
+                <h5>Support</h5>
+                <a href="Support.jsp">Help Center</a>
+                <a href="Support.jsp">Track Order</a>
+                <a href="Support.jsp">Returns</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Dream Bags. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/anuuj_______1?igsi=MWdyYjJrMHc2dTkxbA=="><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://in.pinterest.com/anuuj_______1/"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="https://x.com/anuuj_______1"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
